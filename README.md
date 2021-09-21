@@ -30,7 +30,7 @@ Dans ce projet nous allons utiliser les dependances Maven suivants :<br/>
 ### Etapes à faire
 ---
 On peut facilement définir les profils en ajoutant le XML suivant au fichier du projet `pom.xml`
-`
+```
 <profiles>
 	<profile>
 		<id>LOCAL</id>
@@ -60,7 +60,7 @@ On peut facilement définir les profils en ajoutant le XML suivant au fichier du
 		</properties>
 	</profile>
 </profiles>
-`
+```
 La balise `<activeByDefault>true</activeByDefault>` signifie que le profil de local sera utilisé 
 par défaut en supposant qu'aucun profil n'est spécifié au moment de la génération.
 <br/>
@@ -84,6 +84,7 @@ et l'autre à être utilisé par le profil **PROD**. Ces fichiers doivent être 
 Dans chacun de ces fichiers, des propriétés peuvent être définies qui ne seront appliquées que lorsque le profil correspondant est actif.
 
 ### Spécification du profil au moment de la construction
+---
 * Lors de la création de l'application pour la production en utilisant Maven comme outil de construction - `$ mvn -Pprod clean install`<br/>
 `-P` est utilisé pour spécifier le profil à utiliser pour la construction.
 * Si nous voulons définir le profil après la construction du code, nous pouvons utiliser un argument Java VM au lancement de l'application. Cela se fait comme suit: `$ java –jar -Dspring.profiles.active=prod app.jar`
